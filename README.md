@@ -2,7 +2,7 @@
 
 # Developed by:
 
-Developers:
+Software Engineers:
 * **Nicolas Angel**
 * **Martin Fitzpatrick**
 * **Michael Starkman**
