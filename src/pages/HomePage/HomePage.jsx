@@ -56,30 +56,32 @@ export default function HomePage() {
             
             {/* HomePage Carousel */}
             <div className="MainCarousel">
-            <div 
-                style={{backgroundImage: `url(${homeImgs[currentImgIndex].src})`}} 
-                className="CarouselPictures" 
-            >
+                <div 
+                    style={{backgroundImage: `url(${homeImgs[currentImgIndex].src})`}} 
+                    className="CarouselPictures" 
+                >
+                </div>
+                {/* Buttons for Carousel */}
+                <div className='LeftButton'>
+                    <BsChevronCompactLeft onClick={prevImg} size={30}/>
+                </div>
+                <div className='RightButton'>
+                    <BsChevronCompactRight onClick={nextImg} size={30}/>
+                </div>
+                {/* Dots for Carousel */}
+                <div className="CarouselDots">
+                    {homeImgs.map((img, index) => (
+                        <RxDotFilled
+                        key={img.id}
+                        onClick={() => setCurrentImgIndex(index)}
+                        size={20}
+                        className={`dot ${index === currentImgIndex ? 'active' : ''}`}
+                        />
+                    ))}
+                </div>
             </div>
-            {/* Buttons for Carousel */}
-            <div className='LeftButton'>
-                <BsChevronCompactLeft onClick={prevImg} size={30}/>
-            </div>
-            <div className='RightButton'>
-                <BsChevronCompactRight onClick={nextImg} size={30}/>
-            </div>
-            {/* Dots for Carousel */}
-            <div className="CarouselDots">
-                {homeImgs.map((img, index) => (
-                    <RxDotFilled
-                    key={img.id}
-                    onClick={() => setCurrentImgIndex(index)}
-                    size={20}
-                    className={`dot ${index === currentImgIndex ? 'active' : ''}`}
-                    />
-                ))}
-            </div>
-            </div>
+
+
 
 
         </main>
