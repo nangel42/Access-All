@@ -2,13 +2,14 @@ import { useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import './App.css';
 import { getUser } from '../../utilities/users-service'
-// import AuthPage from '../AuthPage/AuthPage'
 import NewOrderPage from '../NewOrderPage/NewOrderPage'
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage'
 import NavBar from '../../components/NavBar/NavBar'
 import HomePage from '../HomePage/HomePage';
+// {/* Broke Up AuthPage into LoginPage and SignUpPage */}
 import LoginPage from '../LoginPage/LoginPage';
 import SignUpPage from '../SignUpPage/SignUpPage';
+// import AuthPage from '../AuthPage/AuthPage'
 
 
 export default function App() {
@@ -18,12 +19,20 @@ export default function App() {
 
   return (
     <main className="App">
+
+      {/* Changing Nav Bar based on User Login */}
       <NavBar user={user} setUser={setUser} />
+
+      {/* Shows Homepage Upon boot */}
       {showHomePage}
+
+      {/* Routes */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/orders/new" element={<NewOrderPage />} />
         <Route path="/orders" element={<OrderHistoryPage />} />
+
+        {/* Broke Up AuthPage into LoginPage and SignUpPage */}
         <Route path="/login" element={<LoginPage setUser={setUser} />} />
         <Route path="/signup" element={<SignUpPage setUser={setUser} />} />
       </Routes>
