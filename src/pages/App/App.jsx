@@ -1,25 +1,23 @@
-import { useState } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
-import './App.css';
-import { getUser } from '../../utilities/users-service'
-import NewOrderPage from '../NewOrderPage/NewOrderPage'
-import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage'
-import NavBar from '../../components/NavBar/NavBar'
-import HomePage from '../HomePage/HomePage';
+import { useState } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import "./App.css";
+import { getUser } from "../../utilities/users-service";
+import NewReviewPage from "../NewReviewPage/NewReviewPage";
+import ReviewPage from "../ReviewPage/ReviewPage";
+import NavBar from "../../components/NavBar/NavBar";
+import HomePage from "../HomePage/HomePage";
 // {/* Broke Up AuthPage into LoginPage and SignUpPage */}
-import LoginPage from '../LoginPage/LoginPage';
-import SignUpPage from '../SignUpPage/SignUpPage';
+import LoginPage from "../LoginPage/LoginPage";
+import SignUpPage from "../SignUpPage/SignUpPage";
 // import AuthPage from '../AuthPage/AuthPage'
-
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   const location = useLocation();
-  const showHomePage = location.pathname === '/';
+  const showHomePage = location.pathname === "/";
 
   return (
     <main className="App">
-
       {/* Changing Nav Bar based on User Login */}
       <NavBar user={user} setUser={setUser} />
 
@@ -29,8 +27,8 @@ export default function App() {
       {/* Routes */}
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/orders/new" element={<NewOrderPage />} />
-        <Route path="/orders" element={<OrderHistoryPage />} />
+        <Route path="/reviews/new" element={<NewReviewPage />} />
+        <Route path="/reviews" element={<ReviewPage />} />
 
         {/* Broke Up AuthPage into LoginPage and SignUpPage */}
         <Route path="/login" element={<LoginPage setUser={setUser} />} />
@@ -40,13 +38,12 @@ export default function App() {
   );
 }
 
-
 // export default function App() {
 //   const [user, setUser] = useState(getUser())
 
 //   return (
 //     <main className="App">
-//       { user ? 
+//       { user ?
 //         <>
 //           <NavBar user={user} setUser={setUser} />
 
@@ -54,12 +51,12 @@ export default function App() {
 //         :
 //         <>
 //           <NavBar user={user} setUser={setUser} />
-        
+
 //           {/* <HomePage /> */}
 //         </>
 //       }
 //         <Routes>
-          
+
 //           <Route path="/orders/new" element={<NewOrderPage />} />
 //           <Route path="/orders" element={<OrderHistoryPage />} />
 //           <Route path="/login" element={<LoginPage setUser={setUser} />} />
