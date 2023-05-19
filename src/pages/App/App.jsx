@@ -9,6 +9,7 @@ import HomePage from "../HomePage/HomePage";
 // {/* Broke Up AuthPage into LoginPage and SignUpPage */}
 import LoginPage from "../LoginPage/LoginPage";
 import SignUpPage from "../SignUpPage/SignUpPage";
+import Footer from "../../components/Footer/Footer";
 // import AuthPage from '../AuthPage/AuthPage'
 
 export default function App() {
@@ -34,6 +35,7 @@ export default function App() {
         <Route path="/login" element={<LoginPage setUser={setUser} />} />
         <Route path="/signup" element={<SignUpPage setUser={setUser} />} />
       </Routes>
+      <Footer />
     </main>
   );
 }
