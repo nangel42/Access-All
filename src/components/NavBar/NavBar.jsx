@@ -35,9 +35,7 @@ export default function NavBar({ user, setUser }) {
             <Link to="/signup">Sign Up</Link>
 
         </>
-
       }
-
         </nav>
     )
 }

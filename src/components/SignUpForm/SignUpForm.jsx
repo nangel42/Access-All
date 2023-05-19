@@ -1,8 +1,12 @@
 // Rewrite the SignUpForm as a function component
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { signUp } from '../../utilities/users-service'
 
 export default function SignUpForm({ setUser }) {
+    //Navigates to the HomePage after successful login
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -28,6 +32,8 @@ export default function SignUpForm({ setUser }) {
             delete formDataCopy.confirm
             const user = await signUp(formDataCopy)
             setUser(user)
+            //Navigates to the HomePage after successful login
+            navigate('/');
         } catch {
             setFormData({
                 ...formData,
